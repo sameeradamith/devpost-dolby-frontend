@@ -1,0 +1,191 @@
+<div class="px-5 py-5 p-lg-0 bg-surface-secondary">
+    <div class="d-flex justify-content-center">
+        <div class="col-lg-5 col-xl-4 p-12 p-xl-20 position-fixed start-0 top-0 h-screen overflow-y-hidden bg-primary d-none d-lg-flex flex-column">
+            <!-- Logo -->
+            <h2 style="color: #fff;">HelloApp</h2>
+            <!-- Title -->
+            <div class="mt-32 mb-20">
+                <h1 class="ls-tight font-bolder display-6 text-white mb-5">
+                    It's time to build something amazing today.
+                </h1>
+                <p class="text-white text-opacity-80">
+                    You are three steps away to enjoy your own conference application with Dolby.
+                </p>
+            </div>
+            <!-- Circle -->
+            <div class="w-56 h-56 bg-orange-500 rounded-circle position-absolute bottom-0 end-20 transform translate-y-1/3"></div>
+        </div>
+        <div class="col-12 col-md-9 col-lg-7 offset-lg-5 border-left-lg min-h-lg-screen d-flex flex-column justify-content-center py-lg-16 px-lg-20 position-relative">
+            <div class="row">
+                
+                    <div class="col-md-6 col-12 mb-3 mb-md-0">
+                        <!-- Title -->
+                        <span class="d-inline-block d-lg-block h1 mb-lg-6 me-3">👋</span>
+                    </div>
+                    
+                    <div class="col-md-6 col-12 text-md-end">
+                        <div class="mx-n1">
+                            <button (click)="ngxSmartModalService.getModal('helpModal').open()" class="btn d-inline-flex btn-sm btn-primary mx-1">
+                                <span class=" pe-2">
+                                    <i class="fas fa-question-circle"></i>
+                                </span>
+                                <span>Help</span>
+                            </button>
+                        </div>
+                    </div>
+
+
+
+                <div class="col-lg-10 col-md-9 col-xl-8 mx-auto ms-xl-0">
+                    <div class="mt-10 mt-lg-5 mb-6 d-flex align-items-center d-lg-block"> 
+                        <h1 class="ls-tight font-bolder h2">
+                            Build Your Own Conference Application for Free!
+                        </h1>                        
+                    </div>
+
+
+                    <form class="needs-validation" [formGroup]="runForm" (ngSubmit)="onSubmit(runForm)" novalidate>
+                        <div class="mb-5">
+                            <label class="form-label" for="email">Application Name</label>
+                            <input type="text" formControlName="app_name" class="form-control form-control-muted">
+                        </div>
+                        <div class="mb-5">
+                            <label class="form-label" for="email">Consumer Key
+                                <span style="margin-left: 75px;">
+                                    <small>Don't have an Key? </small>
+                                    <a href="https://dolby.io/" target="_blank" class="text-warning text-sm font-semibold">Create a new one free!</a>
+                                </span>
+                                
+                            </label> 
+                            <input type="text" formControlName="clientId_value" class="form-control form-control-muted">
+                        </div>
+                        <div class="mb-5">
+                            <label class="form-label" for="email">Consumer Secret</label>
+                            <input type="password" formControlName="client_secret" class="form-control form-control-muted">
+                        </div>
+
+
+                        <table class="table table-borderless">
+                            <tbody>
+                              <tr>
+                                <th>Enable video</th>
+                                <td> <ng-toggle
+                                    [value]="true"
+                                    (change)="updateIsVideo($event)"
+                                    [color]="{
+                                        unchecked: '#939da2',
+                                        checked: '#f62d51'
+                                    }"
+                                    height=19
+                                    ></ng-toggle>
+                                </td>
+                              </tr>
+                              <tr>
+                                <th>Enable Screen Share</th>
+                                <td><ng-toggle
+                                    [value]="true"
+                                    (change)="updateScreenShare($event)"
+                                    [color]="{
+                                        unchecked: '#939da2',
+                                        checked: '#f62d51'
+                                    }"
+                                    height=19
+                                    ></ng-toggle>
+                                </td>
+                              </tr>
+                              <tr>
+                                <th>Enable Recroding</th>
+                                <td><ng-toggle
+                                    [value]="true"
+                                    (change)="updateRecording($event)"
+                                    [color]="{
+                                        unchecked: '#939da2',
+                                        checked: '#f62d51'
+                                    }"
+                                    height=19
+                                    ></ng-toggle>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+
+
+
+                        <div class="mt-3">
+                            <button type="submit" class="btn btn-primary w-full">
+                                Build App
+                            </button>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="my-6">
+                    <small>The purpose of this application is, let you to build your own conference application using Dolby services even without developer skills. With HelloApp you don't need to worry about the finance and security aspects just like using other third party applications.</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<ngx-smart-modal #helpModal identifier="helpModal">
+
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">How to work!</h5>
+                </div>
+                <div class="modal-body">
+                    <h5>1. Build an Applicaiton</h5>
+                    <p>Enter requred details and press build a applcaiotn.</p>
+
+                    <p>After that you get a sucessfull gereted .zip file. It include all source code.</p>
+
+                    <h5 class="mt-3">2. How to run applcaiotn</h5>
+                    <p>Navigae a prohject folder. run "npm install" and then run "npm start".</p>
+
+                    <h5 class="mt-3">3. Enjoyed your applicaiotn</h5>
+                    <p>Thats it. enjoyed your applcaiotn locally visit. http://localhost:3000.</p>
+
+                    <h4 class="mt-5 text-center">Thnks for using our service.</h4>
+
+                </div>
+                <div class="modal-footer">
+                    <button (click)="helpModal.close()" type="button" class="btn btn-sm btn-primary">Done</button>
+                </div>
+            </div>
+  
+    </div>
+  
+  </ngx-smart-modal> 
+
+
+  <ngx-smart-modal #successModal identifier="successModal">
+
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body" style="text-align: center;">
+                
+                <div>
+                    <i class="fas fa-check-circle fa-7x"></i>
+                </div>
+
+                <H2 class="mt-4">Successfully geretaed project.</H2>
+                <h4 class="mt-4">Downloading start shortly.</h4>
+                <p class="mt-4">Thnak you for using our service.</p>
+
+            </div>
+            <div class="modal-footer">
+                <button (click)="successModal.close()" type="button" class="btn btn-sm btn-primary">Done</button>
+            </div>
+        </div>
+
+</div>
+
+</ngx-smart-modal> 
+
